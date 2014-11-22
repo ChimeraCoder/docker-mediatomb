@@ -1,0 +1,18 @@
+mediatomb
+===========
+
+A Docker container for running [Mediatomb](http://mediatomb.cc/), a free and open source UPnP media server.
+
+
+````sh
+$ sudo docker run --rm --net="host" -v /dev/urandom:/dev/urandom -v /dev/random:/dev/random -p 50500:50500 chimeracoder/mediatomb
+````
+
+Of course, you will need to mount the directories containing the media you wish to share. For example:
+
+````sh
+$ sudo docker run --rm --net="host" -v /dev/urandom:/dev/urandom -v /dev/random:/dev/random -v ~/Video:/media/Video -p 50500:50500 chimeracoder/mediatomb
+````
+
+
+Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol. For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
