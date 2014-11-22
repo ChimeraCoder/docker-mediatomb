@@ -16,3 +16,10 @@ $ sudo docker run --rm --net="host" -v /dev/urandom:/dev/urandom -v /dev/random:
 
 
 Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol. For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
+
+
+### License
+
+MediaTomb is free software provided under [Version 2 of the GNU Public License](http://mediatomb.cc/pages/documentation#id2861434)
+
+This Docker image is provided under Version 2 of the GNU Public License.
