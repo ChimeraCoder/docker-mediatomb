@@ -22,7 +22,7 @@ mediatomb
 ````
 Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol. For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
 
-Eample [Upstart](https://en.wikipedia.org/wiki/Upstart) script has been included for launching MediaTomb's Docker container as a system service.
+Example [Upstart](https://en.wikipedia.org/wiki/Upstart) script has been included for launching MediaTomb's Docker container as a system service.
 
 Additional (and ongoing) instructions for MediaTomb used in home automation can be found on opensour.cc (pronounced "open sourcey") at:
 https://www.opensour.cc/ggcom#automation
