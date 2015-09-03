@@ -1,25 +1,40 @@
-mediatomb
+MediaTomb
 ===========
 
-A Docker container for running [Mediatomb](http://mediatomb.cc/), a free and open source UPnP media server.
+A Docker container for running [MediaTomb](http://mediatomb.cc/), a free and open source UPnP media server.
 
-
+Clone repository and build:
 ````sh
-$ sudo docker run --rm --net="host" -v /dev/urandom:/dev/urandom -v /dev/random:/dev/random -p 50500:50500 chimeracoder/mediatomb
+$ mkdir -pv ~/src/docker-mediatomb
+$ git clone https://github.com/ChimeraCoder/docker-mediatomb.git ~/src/docker-mediatomb
+$ sudo docker build --tag=mediatomb ~/src/docker/docker-mediatomb
 ````
 
-Of course, you will need to mount the directories containing the media you wish to share. For example:
-
+Example run, where your media from root@dockerHost is mapped to /media inside of the container:
 ````sh
-$ sudo docker run --rm --net="host" -v /dev/urandom:/dev/urandom -v /dev/random:/dev/random -v ~/Video:/media/Video -p 50500:50500 chimeracoder/mediatomb
+$ sudo docker run --rm --net="host" \
+-v /dev/urandom:/dev/urandom \
+-v /dev/random:/dev/random \
+-v /root/mediatomb:/var/lib/mediatomb \
+-v /root/Photos:/media/Photos \
+-v /root/Videos:/media/Videos \
+-v /root/Music:/media/Music \
+mediatomb
 ````
+Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol.  For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
 
+Example [Upstart](https://en.wikipedia.org/wiki/Upstart) script has been included for launching MediaTomb's Docker container as a system service.
 
-Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol. For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
-
+Additional (and ongoing) instructions for MediaTomb used in home automation can be found on opensour.cc (pronounced "open sourcey") at:
+https://www.opensour.cc/ggcom#automation
 
 ### License
 
 MediaTomb is free software provided under [Version 2 of the GNU Public License](http://mediatomb.cc/pages/documentation#id2861434)
 
 This Docker image is provided under Version 2 of the GNU Public License.
+
+### Authors
+Original: Aditya Mukerjee
+
+Updates: Louis T. Getterman IV
