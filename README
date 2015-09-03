@@ -18,9 +18,10 @@ $ sudo docker run --rm --net="host" \
 -v /root/mediatomb:/var/lib/mediatomb \
 -v /root/Photos:/media/Photos \
 -v /root/Videos:/media/Videos \
+-v /root/Music:/media/Music \
 mediatomb
 ````
-Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol. For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
+Note that the `--net="host"` flag is required to enable service discovery as per the UPnP protocol.  For more information on Docker networking, please read the [Network Configuration documentation](https://docs.docker.com/articles/networking/).
 
 Example [Upstart](https://en.wikipedia.org/wiki/Upstart) script has been included for launching MediaTomb's Docker container as a system service.
 

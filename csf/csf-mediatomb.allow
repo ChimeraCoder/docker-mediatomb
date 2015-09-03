@@ -1,0 +1,20 @@
+#
+# Place this file 'csf-mediatomb.allow' into /etc/csf/
+#
+# Add an entry to /etc/csf/csf.allow:
+# Include /etc/csf/csf-mediatomb.allow
+#
+
+# UPnP
+udp|in|d=1900|s=0.0.0.0/0
+udp|out|d=1900|d=0.0.0.0/0
+tcp|in|d=1900|s=0.0.0.0/0
+tcp|out|d=1900|d=0.0.0.0/0
+
+# MediaTomb's default port
+tcp|in|d=50500|s=0.0.0.0/0
+udp|in|d=50500|s=0.0.0.0/0
+
+# Border Gateway Protocol (BGP)
+tcp|in|d=65001|d=255.255.255.255
+udp|in|d=65001|d=255.255.255.255
